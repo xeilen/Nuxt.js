@@ -39,6 +39,11 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
+  loading: {
+    color: '#39b982',
+    height: '2px',
+  },
+
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 

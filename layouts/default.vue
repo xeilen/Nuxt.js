@@ -8,10 +8,10 @@
 <script>
 import NavBar from '../components/NavBar'
 export default {
-  components: { NavBar },
   comments: {
     NavBar,
   },
+  components: { NavBar },
   head() {
     return {
       titleTemplate: '%s - Real World Events',
