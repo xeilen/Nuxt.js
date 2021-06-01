@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Id',
   // props: {
@@ -11,14 +12,9 @@ export default {
   //     default: null,
   //   },
   // },
-  async asyncData({ $axios, error, params }) {
+  async fetch({ store, error, params }) {
     try {
-      const response = await $axios.get(
-        'http://localhost:3000/events/' + params.id
-      )
-      return {
-        event: response.data,
-      }
+      await store.dispatch('events/fetchEvent', params.id)
     } catch (e) {
       error({
         statusCode: 503,
@@ -37,6 +33,9 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState('events', ['event']),
   },
 }
 </script>
